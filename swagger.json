@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "blipApi",
+    "description": "API para obter o Avatar e os repositórios da Take",
+    "contact": {
+      "name": "Jonathan Souza",
+      "email": "souzajonathan570@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/": {
+      "get": {
+        "description": "Obter status da API",
+        "responses": {
+          "200": {
+            "description": "Servidor Ok"
+          },
+          "500": {
+            "description": "Servidor Off"
+          }
+        }
+      }
+    },
+    "/api/avatar": {
+      "get": {
+        "description": "Retorna a url do avatar do reposiório da Take Blip",
+        "responses": {
+          "200": {
+            "description": "Requisição feita com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAvatar"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/repo": {
+      "get": {
+        "description": "Retorna o titulo e subtitulo dos 5 repositórios mais antigos",
+        "responses": {
+          "200": {
+            "description": "Retornar um array de objetos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseRepo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ResponseAvatar": {
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": "string",
+            "description": "url do avatar",
+            "example": "https://avatars.githubusercontent.com/u/12345?v=4"
+          }
+        }
+      },
+      "ResponseRepo": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "nome do repositório",
+            "example": "Repositório 01"
+          },
+          "subtitle": {
+            "type": "string",
+            "description": "descrição do repositório",
+            "example": "Repositório de exemplo"
+          }
+        }
+      }
+    }
+  }
+}
