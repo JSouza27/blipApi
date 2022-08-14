@@ -49,9 +49,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ResponseRepo"
+                  "type": "object",
+                  "properties": {
+                    "0": {
+                      "$ref": "#/components/schemas/ResponseRepo"
+                    }
                   }
                 }
               }
