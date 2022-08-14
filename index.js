@@ -1,7 +1,7 @@
 const swaggerUi = require('swagger-ui-express');
 const cors = require('cors');
-const app = require('./src/config/express')();
-const router = require('./src/routes/gitHubRoutes');
+const app = require('./Api/src/config/express')();
+const router = require('./Api/src/routes/gitHubRoutes');
 const swaggerDocument = require('./swagger.json');
 
 const port = app.get('port');
