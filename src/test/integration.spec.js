@@ -39,7 +39,7 @@ describe('Testanto integração com api do GitHub', () => {
     })
 
     it('Deve retornar um Array no body', () => {
-      expect(response.body).to.have.a('array');
+      expect(response.body).to.have.a('object');
     })
 
     it('Deve retornar a propriedade "title" e " subtitle', () => {
